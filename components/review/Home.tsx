@@ -2,6 +2,10 @@ import { NavigationProp, useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { RootStackParamList } from '../../types/route'
+import CreateModal from './Create.modal'
+import AntDesign from '@expo/vector-icons/AntDesign';
+
+
 
 type Props = {}
 
@@ -10,6 +14,7 @@ interface IPreview {
     title: string,
     star: number
 }
+
 
 const styles = StyleSheet.create({
     reviewsItem: {
@@ -24,10 +29,14 @@ const Home = (props: any) => {
         { id: 1, title: "React Native", star: 5 },
         { id: 2, title: "Php + Laravel", star: 3 }
     ]);
+    const [modalVisible, setModalVisible] = useState(true)
     return (
         <View>
             <Text style={{ padding: 30, textAlign: "center" }}>Preview List</Text>
             <View>
+                <View style={{ alignItems: "center" }}>
+                    <AntDesign name="plussquareo" size={40} color="orange" onPress={() => { setModalVisible(true) }} />
+                </View>
                 <View>
                     <FlatList data={reviews} keyExtractor={item => item.id + ""} renderItem={({ item }) => {
                         return (
@@ -41,7 +50,7 @@ const Home = (props: any) => {
                         )
                     }} />
                 </View>
-
+                <CreateModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
             </View>
         </View>
     )
