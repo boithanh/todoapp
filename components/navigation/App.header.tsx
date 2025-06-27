@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5,
         paddingVertical: 10,
         alignItems: "center",
-        paddingTop: 50
+        // paddingTop: 50
     },
     headerText: {
         fontSize: 25,
-        width: "100%",
+        flex: 1,
         textAlign: "center",
         fontWeight: "600"
 
@@ -32,7 +32,7 @@ const AppHeader = () => {
             <MaterialIcons name="menu" size={24} color="black" onPress={() => {
                 navigation.openDrawer();
             }} />
-            <Text style={[styles.headerText, globalStyles.globalFont]}>hihi</Text>
+            <Text style={[styles.headerText, globalStyles.globalFont]}>Review App</Text>
         </View>
     )
 }

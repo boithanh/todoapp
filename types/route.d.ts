@@ -16,9 +16,11 @@ declare global {
     namespace ReactNavigation {
         interface RootParamList extends RootStackParamList { }
     }
+    declare module "*.png"
 }
 
 // Combine them for screen props
 export type HomeScreenProps = CompositeScreenProps<
     DrawerScreenProps<DrawerParamList, 'MainDrawer'>,
+
 >;

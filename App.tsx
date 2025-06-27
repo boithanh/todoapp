@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { OPENSANS_REGULAR } from "./utils/Const";
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigation from "./components/navigation/App.navigation";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 
 SplashScreen.preventAutoHideAsync();
@@ -36,8 +37,10 @@ export default function App() {
 
   return (
     // <TodoApp todo={myTodo} />
-    <NavigationContainer>
-      <AppNavigation />
-    </NavigationContainer>
+    <SafeAreaView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <AppNavigation />
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }
