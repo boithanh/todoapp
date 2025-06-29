@@ -7,12 +7,13 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 
 
 
-type Props = {}
+type Props = {
+}
 
 interface IPreview {
     id: number,
     title: string,
-    star: number
+    star: number,
 }
 
 
@@ -30,6 +31,10 @@ const Home = (props: any) => {
         { id: 2, title: "Php + Laravel", star: 3 }
     ]);
     const [modalVisible, setModalVisible] = useState(true)
+
+    const addNew = (item: IPreview) => {
+        setReviews([...reviews, item])
+    }
     return (
         <View>
             <Text style={{ padding: 30, textAlign: "center" }}>Preview List</Text>
@@ -50,7 +55,7 @@ const Home = (props: any) => {
                         )
                     }} />
                 </View>
-                <CreateModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+                <CreateModal modalVisible={modalVisible} setModalVisible={setModalVisible} addNew={addNew} />
             </View>
         </View>
     )
